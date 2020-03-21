@@ -6,6 +6,7 @@ const authenticate = require('../auth/authenticate-middleware.js');
 const authRouter = require('../auth/auth-router.js');
 const jokesRouter = require('../jokes/jokes-router.js');
 const welcomeRouter = require("../welcome/welcome-router")
+const usersRouter = require("../users/users-router")
 
 const server = express();
 
