@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require("bcryptjs");
 const usersModel = require("../users/users-model")
+const jwt = require("jsonwebtoken")
 
 router.post('/register', async (req, res, next) => {
   // implement registration
@@ -58,7 +59,7 @@ router.post('/login', async (req, res, next) => {
             expiresIn: "8h"
           }
            // generate a new JWT and cryptographically sign
-          const token = jwt.sign(payload, process.env.JWT_SECRET,options )
+          const token = jwt.sign(payload, process.env.JWT_SECRET , options )
 
            // sends a Set-Cookie header with the value of the token
           res.cookie("token", token)
