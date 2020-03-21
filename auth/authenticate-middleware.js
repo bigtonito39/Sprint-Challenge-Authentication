@@ -15,12 +15,13 @@ module.exports = async (req, res, next) => {
       res.status(401).json({ you: 'shall not pass!' });
     }
     
-    jwt.verify(token, process.eventNames.JTW_SECRET, (error, decoded) => {
-      if (error){
+    jwt.verify(token, process.env.JWT_SECRET , (err, decoded) => {
+      if (err){
         res.status(401).json({ you: 'shall not pass!' });
       }
 
       req.token = decoded
+      //this will console log something like this { userID: 2, userRole: 'admin', iat: 1584754667, exp: 1584783467 }
       console.log(decoded)
 
 
