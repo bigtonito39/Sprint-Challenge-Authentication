@@ -1,0 +1,9 @@
+
+Testing
+1. npm i jest supertest 
+2.Add a test script inside package.json that runs our tests: "test": "jest --watch --verbose".
+"jest": {
+  "testEnvirnoment": "node"
+}
+3 create testing folder, and file with name of js file you are creating with a .test.js so we know its a test file.
+4.import superstart and endpoint you will be testing

@@ -14,5 +14,17 @@ module.exports = {
       //runs after a conection is made to the sqlite engine
       conn.run("PRAGMA foreign_keys = ON", done); //turn 
     }
+  },
+
+    testing: {
+     client:'sqlite3',
+     connection:{
+      filename: './database/auth.db3'
+     },
+     useNullAsDefault:true,
+     migrations: {
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
+    },
   }
 };
