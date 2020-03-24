@@ -13,6 +13,6 @@ Testing
 Testing your Endpoint that connects to your db
 -----
 6. on you knexfile, make sure you set up a test script with a file name like authTest.js for example
-7. Then run lastest update thi way: npx knex migrate:latest --env=dev
+7. Then run lastest update thi way: npx knex migrate:latest --env=test
 
 

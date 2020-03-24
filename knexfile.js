@@ -1,4 +1,5 @@
 module.exports = {
+  
   development: {
     client: 'sqlite3',
     connection: { filename: './database/auth.db3' },
@@ -9,13 +10,7 @@ module.exports = {
     },
     seeds: { directory: './database/seeds' },
   },
-  pool:{
-    afterCreate: (conn, done) => {
-      //runs after a conection is made to the sqlite engine
-      conn.run("PRAGMA foreign_keys = ON", done); //turn 
-    }
-  },
-
+ 
     test: {
      client:'sqlite3',
      connection:{
@@ -25,5 +20,12 @@ module.exports = {
      migrations: {
       directory: './database/migrations',
          },
-  }
+  },
+
+  pool:{
+    afterCreate: (conn, done) => {
+      //runs after a conection is made to the sqlite engine
+      conn.run("PRAGMA foreign_keys = ON", done); //turn 
+    }
+  },
 };
