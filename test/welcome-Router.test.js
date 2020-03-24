@@ -1,13 +1,13 @@
-const welcomeRouter = require("../welcome/welcome-router")
-const request = require("supertest")
+const server = require("../api/server")
+const supertest = require("supertest")
 
-describe("GET/",  ()=> {
+test("welcome route", async ()=> {
 
-    it("works correctly", (res,req) => {
-        return request(welcomeRouter).get("/")
-        .expect(200)
-        .expect(res.body.message).toBe("Welcome to handling users API")
-    })
-
-
+   const res = await supertest(server).get("/")
+   expect(res.statusCode).toBe(200)
+   expect(res.type).toBe("application/json")
+   expect(res.body.message).toBe("Welcome to handling users API")
+   expect(res.body.message).toHaveLength(29)
+   expect(res.body.message).toMatch(/Welcome/i)
+   
 })
