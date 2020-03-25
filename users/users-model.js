@@ -31,9 +31,23 @@ async function add (user){
     return findById(id)
 }
 
+async function update(id, changes) {
+    await db("users").update(changes)
+    .where("id", id)
+    return findById(id)
+}
+
+function remove(id){
+    return db("users")
+    .where("id", id)
+    .del()
+}
+
 module.exports = {
     add,
     find,
     findBy,
     findById,
+    update,
+    remove
 }
